@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="generator" content="PSPad editor, www.pspad.com">
+<title>Conjugaison</title>
+<link rel="stylesheet" href="conju.css">
+</head>
+<body>
+<div id="pge"><fieldset><legend>Savoir conjuguer</legend>
+    <p><label> Choix du verbe à conjuger </label>
+        <input id="npt" type="text" value=""> <br>
+        <input type="button"  value="present !" onclick="conjugue()">
+        <input type="button" id="imp" value="imparfait !" onclick="conjugue()"></p>
+    </p>
+    <div id="rsp"></div>
+</fieldset></div>
+<script type="text/javascript">
+var premierGroupeRgl="<p><u>Présent de l'indicatif</u></p><p>Je XXXX<b>e</b></p><p>Tu XXXX<b>es</b></p><p>Il, elle XXXX<b>e</b></p><p>Nous XXXX<b>ons</b></p><p>Vous XXXX<b>ez</b></p>Ils, elles XXXX<b>ent</b></p>";
+indicatif+="<div class='tmp'><p><u>Imparfait de l'indicatif</u></p><p>Je XXXX<b>ais</b></p><p>Tu XXXX<b>ais</b></p><p>Il, elle XXXX<b>ait</b></p><p>Nous XXXX<b>ions</b></p><p>Vous XXXX<b>iez</b></p><p>Ils, elles XXXX<b>aient</b></p></div>";
+// Même chose pour les autres groupes et sous-groupes
+ 
+function conjugue(){var vrb=document.getElementById('npt').value;
+    // test surr la nature du verbe
+    if (vrb.substr(-2)=="er") {
+        document.getElementById('rsp').innerHTML=premierGroupeRgl.replace(/XXXX/g,vrb.substr(0,vrb.length-2));
+    }
+    else alert("Je ne sais pas conjuguer ce verbe\n qui n'appartient pas au 1er groupe !");
+ 
+}
+function conjugue(){var vrb=document.getElementById('imp').value;
+    // test surr la nature du verbe
+    if (vrb.substr(-2)=="er") {
+        document.getElementById('rsp').innerHTML=indicatif.replace(/XXXX/g,vrb.substr(0,vrb.length-2));
+    }
+    else alert("Je ne sais pas conjuguer ce verbe\n qui n'appartient pas au 1er groupe !");
+ 
+}
+
+
+ 
+</script>
+</body>
+</html
